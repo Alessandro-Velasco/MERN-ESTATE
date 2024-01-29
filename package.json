@@ -19,6 +19,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.0",
     "nodemon": "^3.0.3",
-    "redux": "^5.0.1"
+    "persist": "^0.2.7",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.33.2"
   }
 }
