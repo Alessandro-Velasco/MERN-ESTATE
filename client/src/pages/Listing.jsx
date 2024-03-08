@@ -34,6 +34,7 @@ export default function Listing() {
         setLoading(true);
         const res = await fetch(`/api/listing/get/${params.listingId}`);
         const data = await res.json();
+        console.log("Listing Data:", data);
         if (data.success === false) {
           setError(true);
           setLoading(false);
@@ -106,12 +107,13 @@ export default function Listing() {
               </p>
               {listing.offer && (
                 <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                  ${+listing.regularPrice - +listing.discountPrice} OFF
+                  ${+listing.regularPrice - +listing.discountPrice}
                 </p>
               )}
             </div>
             <p className='text-slate-800'>
-              <span className='font-semibold text-black'>Description - </span>
+              <span className='font-semibold text-black'>
+                Description - {' '}</span>
               {listing.description}
             </p>
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>

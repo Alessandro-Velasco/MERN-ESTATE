@@ -7,6 +7,10 @@ const listingSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        description: {
+            type: String,
+            required: true,
+        },
         address:{
             type: String,
             required: true,
@@ -16,6 +20,10 @@ const listingSchema = new mongoose.Schema(
             required: true,
         },
         discountPrice:{
+            type: Number,
+            required: true,
+        },
+        bedrooms:{
             type: Number,
             required: true,
         },
