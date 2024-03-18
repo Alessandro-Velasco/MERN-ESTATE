@@ -23,11 +23,11 @@ const listingSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
-        bedrooms:{
+        bathrooms:{
             type: Number,
             required: true,
         },
-        bathrooms:{
+        bedrooms:{
             type: Number,
             required: true,
         },
@@ -53,7 +53,7 @@ const listingSchema = new mongoose.Schema(
         },
 
     }, {timestamps: true}
-)
+);
 
 const Listing = mongoose.model('Listing', listingSchema);
 
