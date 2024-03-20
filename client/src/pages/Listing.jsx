@@ -15,16 +15,7 @@ import {
 } from 'react-icons/fa';
 
 import Contact from '../components/Contact';
-export const fetchUser = () => async (dispatch) => {
-  dispatch(signInStart());
-  try {
-    const response = await fetch('/api/user');
-    const userData = await response.json();
-    dispatch(signInSuccess(userData));
-  } catch (error) {
-    dispatch(signInFailure(error.message));
-  }
-};
+
 
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
@@ -46,7 +37,6 @@ export default function Listing() {
         setLoading(true);
         const res = await fetch(`/api/listing/get/${params.listingId}`);
         const data = await res.json();
-        console.log("Listing Data:", data);
         if (data.success === false) {
           setError(true);
           setLoading(false);
@@ -119,13 +109,13 @@ export default function Listing() {
               </p>
               {listing.offer && (
                 <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                  ${+listing.regularPrice - +listing.discountPrice}
+                  ${+listing.regularPrice - +listing.discountPrice} 
                 </p>
               )}
             </div>
             <p className='text-slate-800'>
               <span className='font-semibold text-black'>
-                Description - {' '}</span>
+                Description - </span>
               {listing.description}
             </p>
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
@@ -152,7 +142,9 @@ export default function Listing() {
             </ul>
              {currentUser && listing.userRef !== currentUser._id && !contact&&(
 
-              <button onClick={()=>setContact(true)} className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
+              <button 
+              onClick={() => setContact(true)} 
+              className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
               >Contact landlord</button>
              )}
             
