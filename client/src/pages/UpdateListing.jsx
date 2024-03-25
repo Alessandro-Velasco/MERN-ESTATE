@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 export default function CreateListing() {
-    const currentUser = useSelector((state) => state.user)
+    const { currentUser } = useSelector((state) => state.user);
     const navigate = useNavigate();
     const params = useParams();
     const [files, setFiles] = useState([]);
@@ -50,7 +50,7 @@ export default function CreateListing() {
     
 
     const handleImageSubmit = (e) => {
-        if (files.length > 0 && files.length + formData.imageUrls.length < 7){
+        if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
             setUploading(true);
             setImageUploadError(false);
 
@@ -60,7 +60,7 @@ export default function CreateListing() {
             promises.push(storeImage(files[i]));
            }
            Promise.all(promises).then((urls) => {
-            setFormData({ ...formData, imageUrls: formData.imageUrls.concat(urls) });
+            setFormData({ ...formData, imageUrls: formData.imageUrls.concat(urls), });
             setImageUploadError(false);
             setUploading(false)
            }).catch((err) => {

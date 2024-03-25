@@ -9,14 +9,12 @@ import {
   FaBath,
   FaBed,
   FaChair,
+  FaMapMarkedAlt,
   FaMapMarkerAlt,
   FaParking,
   FaShare,
 } from 'react-icons/fa';
-
 import Contact from '../components/Contact';
-
-
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 
@@ -30,7 +28,6 @@ export default function Listing() {
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
 
-  
   useEffect(() => {
     const fetchListing = async () => {
       try {
@@ -109,13 +106,12 @@ export default function Listing() {
               </p>
               {listing.offer && (
                 <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                  ${+listing.regularPrice - +listing.discountPrice} 
+                  ${+listing.regularPrice - +listing.discountPrice} OFF
                 </p>
               )}
             </div>
             <p className='text-slate-800'>
-              <span className='font-semibold text-black'>
-                Description - </span>
+              <span className='font-semibold text-black'>Description - </span>
               {listing.description}
             </p>
             <ul className='text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
@@ -140,14 +136,14 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-             {currentUser && listing.userRef !== currentUser._id && !contact&&(
-
-              <button 
-              onClick={() => setContact(true)} 
-              className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
-              >Contact landlord</button>
-             )}
-            
+            {currentUser && listing.userRef !== currentUser._id && !contact && (
+              <button
+                onClick={() => setContact(true)}
+                className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
+              >
+                Contact landlord
+              </button>
+            )}
             {contact && <Contact listing={listing} />}
           </div>
         </div>
@@ -155,6 +151,3 @@ export default function Listing() {
     </main>
   );
 }
-
-
-
