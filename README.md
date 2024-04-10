@@ -13,11 +13,11 @@ This project is a web application built using React.js and Tailwind CSS for the 
 ## Installation
 1. Clone the repository to your local machine:
    ```
-   git clone https://github.com/yourusername/your-repository.git
+   git clone https://github.com/Alessandro-Velasco/MERN-ESTATE.git
    ```
 2. Navigate to the project directory:
    ```
-   cd your-repository
+   cd MERN-ESTATE
    ```
 3. Install dependencies:
    ```
@@ -43,7 +43,7 @@ This project is a web application built using React.js and Tailwind CSS for the 
 - Log out when you're done using the application.
 
 ## Contributors
-- [Your Name](https://github.com/yourusername)
+- Alessandro Velasco (https://github.com/Alessandro-Velasco)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
